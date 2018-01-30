@@ -3,6 +3,7 @@ package com.arjuna.quizsignupandroid;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -170,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
                                 String ntempat = ettempat.getText().toString();
                                 String ngender = txtgender.getText().toString();
 
+
                                 if (nName.isEmpty()) {
                                     //memberikan warning berupa eror
                                     etname.setError("Nama tidak Boleh Kosong");
@@ -202,6 +204,21 @@ public class MainActivity extends AppCompatActivity {
                                     }else if (sex == "P"){
                                         txtgender.setText("Perempuan");
                                     }
+                                    Intent nN = new Intent(getApplicationContext(), ActivityHasil.class);
+                                    nN.putExtra("name", nName);
+                                    startActivity(nN);
+
+                                    Intent nU = new Intent(getApplicationContext(), ActivityHasil.class);
+                                    nU.putExtra("user", nuser);
+                                    nU.putExtra("nama", nName);
+                                    nU.putExtra("email", nemail);
+                                    nU.putExtra("pass", npassword);
+                                    nU.putExtra("job", job);
+                                    nU.putExtra("alamat", nalamat);
+                                    nU.putExtra("gen", ngender);
+                                    nU.putExtra("tempat", ntempat);
+                                    startActivity(nU);
+
                                 }
 
 
